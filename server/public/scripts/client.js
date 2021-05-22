@@ -14,21 +14,21 @@ $("#clear").on('click', clearInp)
 
 
 function clickedAdd (){
-    operator = "add"
+    operator = "+"
     console.log(operator);
 }
 
 function clickedSubtract (){
-    operator = "subtract"
+    operator = "-"
     console.log(operator);
 
 }
 function clickedMultiply (){
-    operator = "multiply"
+    operator = "*"
     console.log(operator);
 }
 function clickedDivide (){
-    operator = "divide"
+    operator = "/"
     console.log(operator);
 
 }
@@ -44,7 +44,11 @@ $.ajax({
   }).then(function (response) {
     // response is what was in the res.send()
     console.log(response);
-
+    for(let answer of response){
+        $('#mathProblems').append(`
+        <p>${answer.answer}</p>
+        `)
+    }
   });
 }
 
@@ -57,7 +61,6 @@ let newCalc = {
     numberOne:   Number($('#num1').val()),
     numberTwo:    Number($('#num2').val()),
     operator: operator,
-    answer
 }
 
     $.ajax({
@@ -67,6 +70,8 @@ let newCalc = {
       }).then(function (response) {
         // response is what was in the res.send()
         console.log(response);
+      
+       
 getCalc()
        
       });

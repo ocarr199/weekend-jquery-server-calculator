@@ -12,28 +12,51 @@ app.use(express.static("server/public"));
 
 
 
-let numbers = ["hello"]
+let numbers = []
 
-function doTheMath(num1,num2,operator)  {
-let answer;
-if(operator == +){
-    answer = num1 + num2;
-} else if(operator == "subtract"){
-    answer = num1 - num2;
-}  else if(operator == "multiply"){
-    answer = num1 * num2;
-}  else if(operator == "divide"){
-    answer = num1 / num2;
-} 
-console.log(answer);
+function doTheMath(list)  {
+
+// for(let obj of list){
+//     console.log(obj)
+//     if(obj.operator == '+'){
+//     obj.answer = obj.numberOne + obj.numberTwo;
+//  }else{
+//      console.log("doTheMath broke")
+//  }
+// //   else if(list.operator == "-"){
+// //      answer = num1 - num2;
+// //  }  else if(operator == "multiply"){
+// //      answer = num1 * num2;
+// //  }  else if(operator == "divide"){
+// //      answer = num1 / num2;
+// //  } 
+// }
+
+// console.log(answer);
+for(let obj of list){
+    if(obj.operator == "+"){
+        obj.answer = Number(obj.numberOne) + Number(obj.numberTwo);
+        console.log(obj.answer)
+    } else if(obj.operator == "-"){
+        obj.answer = Number(obj.numberOne) - Number(obj.numberTwo);
+        console.log(obj.answer)
+    } else if(obj.operator == "*"){
+        obj.answer = Number(obj.numberOne) * Number(obj.numberTwo);
+        console.log(obj.answer)
+    } else if(obj.operator == "/"){
+        obj.answer = Number(obj.numberOne) / Number(obj.numberTwo);
+        console.log(obj.answer)
+    }
+  
+}
 }
 
 // //#endregion logic
 
 // #region get and post
 app.get("/calc", (req, res) => {
-    console.log("got to /guesses");
-
+    console.log("got to /calc");
+    doTheMath(numbers)
     // respond
     res.send(numbers);
   });
@@ -45,7 +68,7 @@ app.get("/calc", (req, res) => {
     let dataRecieved = req.body
     console.log(req.body);
     numbers.push(req.body);
-    console.log(dataRecieved.numberOne)
+
     // send back a good response
     res.send(req.body)
     

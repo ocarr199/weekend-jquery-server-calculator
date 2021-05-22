@@ -34,7 +34,7 @@ function clickedDivide (){
 }
 function clearInp (){
     $('#num1').val('')
-    $('#num1').val('')
+    $('#num2').val('')
 }
 function getCalc(){
 
@@ -44,9 +44,10 @@ $.ajax({
   }).then(function (response) {
     // response is what was in the res.send()
     console.log(response);
+    $('#mathProblems').empty()
     for(let answer of response){
         $('#mathProblems').append(`
-        <p>${answer.answer}</p>
+        <li>${answer.numberOne} ${answer.operator} ${answer.numberTwo} = ${answer.answer}</li>
         `)
     }
   });

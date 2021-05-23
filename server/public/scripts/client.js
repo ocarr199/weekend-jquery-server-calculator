@@ -11,6 +11,7 @@ function handleReady() {
   $("#divide").on('click', clickedDivide)
   $("#clear").on('click', clearInp)
   $('#clearAll').on('click', clearList)
+  $('#mathProblems').on('click', '#eachProblem', redoProblem )
 }
 
 // functions to decide what operator to use
@@ -18,12 +19,10 @@ function clickedAdd() {
   operator = "+"
   console.log(operator);
 }
-
 function clickedSubtract() {
   operator = "-"
   console.log(operator);
 }
-
 function clickedMultiply() {
   operator = "*"
   console.log(operator);
@@ -55,7 +54,7 @@ function getCalc() {
     for (let answer of response) {
       $('#lastAnswer').text(`${answer.answer}`)
       $('#mathProblems').prepend(`
-        <li>${answer.numberOne} ${answer.operator} ${answer.numberTwo} = ${answer.answer}</li>
+        <li id="eachProblem">${answer.numberOne} ${answer.operator} ${answer.numberTwo} = ${answer.answer}</li>
         `)
     }
   });
@@ -107,3 +106,9 @@ function clearList() {
     getCalc()
   });
 }
+
+function redoProblem (){
+ console.log($(this).children())
+
+}
+

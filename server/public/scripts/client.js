@@ -10,6 +10,7 @@ function handleReady() {
   $("#multiply").on('click', clickedMultiply)
   $("#divide").on('click', clickedDivide)
   $("#clear").on('click', clearInp)
+  $('#clearAll').on('click', )
 }
 
 // functions to decide what operator to use
@@ -85,4 +86,7 @@ function Calculate() {
     // run getCalc again with updated numbers array
     getCalc()
   });
+}
+function clearList(){
+  
 }

@@ -1,30 +1,16 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
-- [ x] SERVER SETUP FILE STRUCTURE
-    - [x ] Make .gitignore file in root folder
-    - [ x] Make readme.md file in root folder (optional, but recommended)
-        - [ x] Make server folder in root folder
-            - [ x] Make server.js file in server folder
-            - [ x] Make modules folder
-            - [ x] Make public folder
-                - [ ] Add favicon.ico file in public folder
-                - [x ] Make index.html in public folder
-                    - [ x] Link "./styles/style.css"
-                    - [ x] Source in "./vendors/jquery-3.6.0.js" above
-                    - [ x] Source in "./scripts/client.js" 
-                - [x ] Make scripts folder
-                    - [x ] Make client.js file here
-                        - [x ] Make sure to source in jQuery
-                - [ x] Make styles folder
-                    - [ x] Make style.css file here
-                    - [ x] Source in bootstrap if you like
-                - [ x] Make vendors folder
-                    - [x ] Add jQuery.js file here
-
+weekend-jquery-server-calculator
 ## Description
 
 Your project description goes here. What problem did you solve? How did you solve it?
+
+This project was to build a calculator with two n umber inputs,
+four buttons for operators, and a equals button to get the result.
+Once equals is pressed the inputs along with which operator button was pressed is sent to the server. This is where the calculation is done.
+Once the answer is calculated on the server it is sent back to the client where it is posted to the DOM.
+A history of all calculations done is kept on the dom with an emphasis on the most recent answer.
+There is a button to clear all calculation history which empties the array of calculation objects sent on the server sending back an empty array. 
+This project uses html, css, javascript, bootstrap, jQuery, nodejs and ajax. 
+
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).

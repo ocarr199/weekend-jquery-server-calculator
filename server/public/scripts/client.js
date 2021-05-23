@@ -11,7 +11,7 @@ function handleReady() {
   $("#divide").on('click', clickedDivide)
   $("#clear").on('click', clearInp)
   $('#clearAll').on('click', clearList)
-  $('#mathProblems').on('click', '#eachProblem', redoProblem )
+
 }
 
 // functions to decide what operator to use
@@ -56,7 +56,9 @@ function getCalc() {
       $('#mathProblems').prepend(`
         <li id="eachProblem">${answer.numberOne} ${answer.operator} ${answer.numberTwo} = ${answer.answer}</li>
         `)
+    
     }
+
   });
 }
 // declaring operator variable
@@ -102,13 +104,11 @@ function clearList() {
     // response is status code
     // this time it will log "created" bc code 201
     console.log(response);
+    // clear last answer
+    $('#lastAnswer').text('')
     // run getCalc again with updated numbers array
     getCalc()
   });
 }
 
-function redoProblem (){
- console.log($(this).children())
-
-}
 

@@ -10,7 +10,7 @@ function handleReady() {
   $("#multiply").on('click', clickedMultiply)
   $("#divide").on('click', clickedDivide)
   $("#clear").on('click', clearInp)
-  $('#clearAll').on('click', )
+  $('#clearAll').on('click', clearList)
 }
 
 // functions to decide what operator to use
@@ -75,10 +75,30 @@ function Calculate() {
   }
   // ajax finds app.post('/calc' and sends it 
   // the newCalc object
+  // post request only goes through when all inputs 
+  // have a vaule
+  if ((!$('#num1').val()) || (!$('#num2').val()) || (operator == undefined)) {
+    alert("Fill out all inputs")
+  } else {
+    $.ajax({
+      method: "POST",
+      url: "/calc",
+      data: newCalc,
+    }).then(function (response) {
+      // response is status code
+      // this time it will log "created" bc code 201
+      console.log(response);
+      // run getCalc again with updated numbers array
+      getCalc()
+    });
+  }
+}
+
+function clearList() {
   $.ajax({
-    method: "POST",
+    method: "DELETE",
     url: "/calc",
-    data: newCalc,
+    // data: newCalc,
   }).then(function (response) {
     // response is status code
     // this time it will log "created" bc code 201
@@ -86,7 +106,4 @@ function Calculate() {
     // run getCalc again with updated numbers array
     getCalc()
   });
-}
-function clearList(){
-  
 }

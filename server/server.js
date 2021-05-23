@@ -64,6 +64,13 @@ app.post("/calc", (req, res) => {
     // send back a good response
     res.sendStatus(201);
 });
+// delete 
+app.delete("/calc", (req, res) => {
+    //   req.body is data from ajax post
+    numbers = []
+    // send back a good response
+    res.send(numbers);
+});
 
 // //#endregion get and post 
 

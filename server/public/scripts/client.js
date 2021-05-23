@@ -46,7 +46,8 @@ $.ajax({
     console.log(response);
     $('#mathProblems').empty()
     for(let answer of response){
-        $('#mathProblems').append(`
+        $('#lastAnswer').text(`${answer.answer}`)
+        $('#mathProblems').prepend(`
         <li>${answer.numberOne} ${answer.operator} ${answer.numberTwo} = ${answer.answer}</li>
         `)
     }

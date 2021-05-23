@@ -11,22 +11,34 @@
     <title>Document</title>
 </head>
 <body>
+<header>
     <h1>Server Side Calculator</h1>
+</header>
+<div class='calcDiv'>
+    <div class=" input-group-sm mb-3">
     <input id="num1" type="number">
-    <span id="operator" ></span>
-    <button value="add" id="add">+</button>
-    <button value="subtract" id="subtract">-</button>
-    <button value="multiply" id="multiply">*</button>
-    <button value="divide" id="divide">÷</button>
-</span>
+    <span class='btn-group'>
+    <button class="btn btn-secondary" value="add" id="add">+</button>
+    <button class="btn btn-secondary" value="subtract" id="subtract">-</button>
+    <button class="btn btn-secondary" value="multiply" id="multiply">*</button>
+    <button class="btn btn-secondary" value="divide" id="divide">÷</button>
+    </span>
     <input id="num2" type="number">
-    <button id="equals">=</button>
-    <button id="clear">clear</button>
-</body>
+    <span class='btn-group'>
+    <button class="btn btn-secondary" id="equals">=</button>
+    <button class="btn btn-secondary" id="clear">clear</button>
+</span>
+</div>
+</div>
 <main >
-    <ul id="mathProblems">
-
-    </ul>
-    
+    <h2 id='mostRecent'>Most Recent Answer <span id='lastAnswer'></span></h2>
+    <div class="probHistory">
+        <h3>Calculation History</h3>
+        <ul id="mathProblems">
+        </ul>
+    </div>
+    </body>
 </main>
+
+
 </html>
